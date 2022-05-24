@@ -1,0 +1,15 @@
+﻿@model IdentityUserManagement.Models.ViewModels.ListAll
+@{
+    ViewData["Title"] = "Index";
+}
+
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService authorizationService
+
+
+@if ((await authorizationService.AuthorizeAsync(User, "AllPolicy")).Succeeded)
+{
+    <h1>Only All Policy</h1>
+}
+
+
